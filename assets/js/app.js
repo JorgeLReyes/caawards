@@ -1,3 +1,5 @@
+import { translations } from "./translations.js";
+
 const nav = document.querySelector(".header-nav");
 const toggleNav = () => nav.classList.toggle("active");
 
@@ -5,6 +7,13 @@ const closeNav = () => {
   if (nav.classList.contains("active")) {
     nav.classList.remove("active");
   }
+};
+
+const language = () => {
+  const translationsElements = document.querySelectorAll("[data-lang]");
+  translationsElements.forEach((element) => {
+    element.innerHTML = translations[element.dataset.lang]["es"];
+  });
 };
 document.addEventListener("click", (e) => {
   const navContainer = e.target.closest(".header-nav");
@@ -21,3 +30,5 @@ window.addEventListener("resize", (e) => {
     closeNav();
   }
 });
+
+language();

@@ -25,26 +25,28 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100dvh;
-  background-position: 50% 100%;
-  padding: 0 2rem 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, sans-serif;
-  background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/infobae/DK6ASKZZOFELZLLQJJ63ZFZXDM.jpg");
-  background-size: cover;
 
   & {
     width: 100%;
   }
-}
 
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #18181880;
-  box-shadow: inset 0px 0px 400px 400px #18181890;
+  & .body-background {
+    position: fixed;
+    inset: 0;
+    background-color: #18181890;
+
+    & img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 100%;
+      mix-blend-mode: multiply;
+    }
+  }
 }
 
 a {
@@ -66,6 +68,13 @@ button {
 li {
   height: 100%;
   list-style: none;
+}
+
+.container {
+  width: 100%;
+  height: 100dvh;
+  flex-direction: column;
+  padding: 0 2rem;
 }
 
 header {
@@ -135,6 +144,7 @@ nav {
   align-items: center;
   width: 30px;
   height: 20px;
+  gap: 0.3rem;
 
   .bar {
     width: 30px;
